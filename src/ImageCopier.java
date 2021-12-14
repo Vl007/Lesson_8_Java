@@ -3,6 +3,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Scanner;
 
 public class ImageCopier {
 
@@ -16,7 +17,29 @@ public class ImageCopier {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
-    protected static void copyFileUsingStream(File source, File dest) {
+
+//    public static String gettingPath (String inputRequest) {
+//        File wayFile;
+//        String wayPath = "";
+//        Scanner scanner = new Scanner(System.in);
+//
+//        try {
+//            while (true) {
+//                System.out.println(inputRequest);
+//                wayPath = scanner.nextLine();
+//                wayFile = new File(wayPath);
+//                break;
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println(ANSI_RED + "Картинка не найдена или не существует," +
+//                    " попробуйте еще раз!" + ANSI_RESET);
+//        }
+//
+//        return wayPath;
+//    }
+
+    protected static void copyFileUsingStream(String source, String dest) {
         try (InputStream is = new FileInputStream(source);
              OutputStream os = new FileOutputStream(dest)) {
             byte[] buffer = new byte[2^100];
